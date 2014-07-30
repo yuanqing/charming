@@ -2,8 +2,10 @@
 (function (root, factory) {
 
   if (typeof define === 'function' && define.amd) {
+    /* istanbul ignore next */
     define(factory);
   } else if (typeof exports === 'object') {
+    /* istanbul ignore next */
     module.exports = factory;
   } else {
     root.charm = factory(root);

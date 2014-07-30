@@ -1,10 +1,10 @@
-# Charm.js [![Build Status](https://travis-ci.org/yuanqing/charm.svg?branch=master)](https://travis-ci.org/yuanqing/charm)
+# Charm.js [![Build Status](https://img.shields.io/travis/yuanqing/charm.svg)](https://travis-ci.org/yuanqing/charm) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charm.svg)](https://coveralls.io/r/yuanqing/charm)
 
 A vanilla JavaScript port of [Lettering.js](https://github.com/davatron5000/Lettering.js).
 
 ## Usage
 
-We begin with an arbitary DOM element:
+We begin with an arbitrary DOM element:
 
 ```html
 <h1>foo</h1>
@@ -27,11 +27,11 @@ charm(element);
 </h1>
 ```
 
-Charm also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charm/blob/master/test/spec/charm.spec.js). Essentially any character that is inside a child [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) of the given element will be captured and wrapped.
+Charm also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charm/blob/master/test/spec/charm.spec.js). Essentially any character that is inside a child [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) of the given element will be wrapped.
 
 ## Options
 
-Pass in an options object if you want to change the `tagName` and/or `classPrefix`:
+Pass in an options object if you want to change the `tagName` and/or the `classPrefix`:
 
 ```js
 charm(element, {
@@ -40,7 +40,7 @@ charm(element, {
 });
 ```
 
-Set `classPrefix` to `false` if you don&rsquo;t need numbered classes:
+Set `classPrefix` to `false` if you don&rsquo;t need a class on each wrapper element:
 
 ```js
 charm(element, {

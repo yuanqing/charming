@@ -1,14 +1,25 @@
 module.exports = function (config) {
   config.set({
-    basePath : '',
-    autoWatch : true,
+    basePath: '..',
+    autoWatch: true,
     frameworks: ['jasmine'],
-    browsers : ['PhantomJS'],
-    plugins : [
-      'karma-spec-reporter',
+    browsers: ['PhantomJS'],
+    plugins: [
+      'karma-coverage',
+      'karma-jasmine',
       'karma-phantomjs-launcher',
-      'karma-jasmine'
+      'karma-spec-reporter'
     ],
-    reporters : ['spec']
+    reporters: [
+      'coverage',
+      'spec'
+    ],
+    preprocessors: {
+      'src/*.js': ['coverage']
+    },
+    coverageReporter: {
+      type: 'lcov',
+      dir: 'coverage/'
+    }
   });
 };
