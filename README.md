@@ -12,7 +12,7 @@ We begin with an arbitary DOM element:
 
 Invoking `charm`&hellip;
 
-```javascript
+```js
 var element = document.querySelectorAll('h1')[0];
 charm(element);
 ```
@@ -33,16 +33,16 @@ Charm also works when [the given element contains other (possibly nested) DOM el
 
 Pass in an options object if you want to change the `tagName` and/or `classPrefix`:
 
-```javascript
+```js
 charm(element, {
   tagName: 'b', // defaults to 'span'
   classPrefix: 'letter' // defaults to 'char'
 });
 ```
 
-Set `classPrefix` to `false` if you don&rsquo;t need the numbered classes:
+Set `classPrefix` to `false` if you don&rsquo;t need numbered classes:
 
-```javascript
+```js
 charm(element, {
   classPrefix: false
 });
