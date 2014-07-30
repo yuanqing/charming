@@ -18,7 +18,7 @@
     opts = opts || {};
     var tagName = opts.tagName || 'span',
       classPrefix = typeof opts.classPrefix !== 'undefined' ? opts.classPrefix : 'char',
-      count = 0;
+      count = 1;
 
     var traverse = function (elem) {
       var childNodes = Array.prototype.slice.call(elem.childNodes); // static array of nodes
