@@ -1,6 +1,6 @@
-# Charm.js [![Build Status](https://img.shields.io/travis/yuanqing/charm.svg)](https://travis-ci.org/yuanqing/charm) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charm.svg)](https://coveralls.io/r/yuanqing/charm)
+# Charm.js [![Build Status](https://img.shields.io/travis/yuanqing/charm.svg?style=flat)](https://travis-ci.org/yuanqing/charm) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charm.svg?style=flat)](https://coveralls.io/r/yuanqing/charm)
 
-A vanilla JavaScript port of [Lettering.js](https://github.com/davatron5000/Lettering.js).
+> [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 ## Usage
 
@@ -27,11 +27,13 @@ charm(element);
 </h1>
 ```
 
-Charm also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charm/blob/master/test/spec/charm.spec.js). Essentially any character that is inside a child [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) of the given element will be wrapped.
+Charm also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charm/blob/master/test/spec/charm.spec.js); any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
 
-## Options
+## API
 
-Pass in an options object if you want to change the `tagName` and/or the `classPrefix`:
+### charm(elem, [opts])
+
+Pass in an `opts` object if you want to change the `tagName` and/or the `classPrefix`:
 
 ```js
 charm(element, {
@@ -52,8 +54,8 @@ charm(element, {
 
 1. Install with [Bower](http://bower.io/):
 
-  ```
-  bower install https://github.com/yuanqing/charm.git
+  ```bash
+  bower install yuanqing/charm
   ```
 
   Or just [grab the zip](https://github.com/yuanqing/charm/archive/master.zip).
