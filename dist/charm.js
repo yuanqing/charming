@@ -1,17 +1,5 @@
 /* globals define */
-(function (root, factory) {
-
-  if (typeof define === 'function' && define.amd) {
-    /* istanbul ignore next */
-    define(factory);
-  } else if (typeof exports === 'object') {
-    /* istanbul ignore next */
-    module.exports = factory;
-  } else {
-    root.charm = factory(root);
-  }
-
-})(this, function () {
+var f = function () {
 
   'use strict';
 
@@ -19,8 +7,8 @@
 
     opts = opts || {};
     var tagName = opts.tagName || 'span',
-      classPrefix = typeof opts.classPrefix !== 'undefined' ? opts.classPrefix : 'char',
-      count = 1;
+        classPrefix = typeof opts.classPrefix !== 'undefined' ? opts.classPrefix : 'char',
+        count = 1;
 
     var traverse = function (elem) {
       var childNodes = Array.prototype.slice.call(elem.childNodes); // static array of nodes
@@ -34,7 +22,7 @@
 
     var inject = function (elem) {
       var str = elem.nodeValue,
-        parentNode = elem.parentNode;
+          parentNode = elem.parentNode;
       for (var i = 0, len = str.length; i < len; i++) {
         var node = document.createElement(tagName);
         if (classPrefix) {
@@ -53,4 +41,15 @@
 
   };
 
-});
+};
+
+/* istanbul ignore next */
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory;
+  } else {
+    root.charm = factory(root);
+  }
+})(this, f);
