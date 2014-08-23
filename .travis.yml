@@ -4,12 +4,8 @@ node_js:
   - '0.10'
   - '0.11'
 
-before_script:
-  - npm install -g gulp
-
 script:
-  - gulp
+  - ./node_modules/.bin/gulp
 
-after_script:
-  - npm install -g coveralls
-  - cat ./coverage/**/lcov.info | coveralls
+after_success:
+  - cat ./coverage/lcov.info | ./node_modules/.bin/coveralls

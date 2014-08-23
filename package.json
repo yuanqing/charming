@@ -1,14 +1,14 @@
 {
-  "name": "Charm.js",
+  "name": "charming",
   "version": "1.0.0",
   "description": "Lettering.js in vanilla JavaScript.",
   "author": "Lim Yuan Qing",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuanqing/charm"
+    "url": "git://github.com/yuanqing/charming.git"
   },
-  "main": "src/charm.js",
+  "main": "src/charming.js",
   "devDependencies": {
     "gulp": "^3.8.0",
     "gulp-jshint": "^1.8.2",
@@ -23,5 +23,11 @@
     "karma-jasmine": "^0.1.5",
     "karma-phantomjs-launcher": "^0.1.4",
     "karma-spec-reporter": "^0.0.13"
-  }
+  },
+  "keywords": [
+    "kerning",
+    "lettering",
+    "span",
+    "typography"
+  ]
 }

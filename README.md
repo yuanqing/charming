@@ -1,23 +1,23 @@
-# Charm.js [![Build Status](https://img.shields.io/travis/yuanqing/charm.svg?style=flat)](https://travis-ci.org/yuanqing/charm) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charm.svg?style=flat)](https://coveralls.io/r/yuanqing/charm)
+# Charming.js [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 ## Usage
 
-We begin with an arbitrary DOM element:
+HTML:
 
 ```html
 <h1>foo</h1>
 ```
 
-Invoking `charm`&hellip;
+JavaScript:
 
 ```js
 var element = document.querySelectorAll('h1')[0];
-charm(element);
+charming(element);
 ```
 
-&hellip;will give us:
+Boom:
 
 ```html
 <h1>
@@ -27,16 +27,16 @@ charm(element);
 </h1>
 ```
 
-Charm also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charm/blob/master/test/spec/charm.spec.js); any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
+Charming.js also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charming/blob/master/test/spec/charm.spec.js); any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
 
 ## API
 
-### charm(elem, [opts])
+### charming(elem, [opts])
 
 Pass in an `opts` object if you want to change the `tagName` and/or the `classPrefix`:
 
 ```js
-charm(element, {
+charming(element, {
   tagName: 'b', // defaults to 'span'
   classPrefix: 'letter' // defaults to 'char'
 });
@@ -45,22 +45,22 @@ charm(element, {
 Set `classPrefix` to `false` if you don&rsquo;t need a class on each wrapper element:
 
 ```js
-charm(element, {
+charming(element, {
   classPrefix: false
 });
 ```
 
 ## Installation
 
-1. Install with [Bower](http://bower.io/):
+1. Install via [npm](https://www.npmjs.org/package/charming):
 
   ```bash
-  bower install yuanqing/charm
+  $ npm i --save charming
   ```
 
-  Or just [grab the zip](https://github.com/yuanqing/charm/archive/master.zip).
+  Or just [grab the zip](https://github.com/yuanqing/charming/archive/master.zip).
 
-2. Include [the minified script](https://github.com/yuanqing/charm/blob/master/dist/charm.min.js) in your HTML:
+2. Include [the minified script](https://github.com/yuanqing/charming/blob/master/dist/charm.min.js) in your HTML:
 
   ```html
   <body>
@@ -74,4 +74,4 @@ charm(element, {
 
 ## License
 
-[MIT license](https://github.com/yuanqing/charm/blob/master/LICENSE)
+[MIT license](https://github.com/yuanqing/charming/blob/master/LICENSE)

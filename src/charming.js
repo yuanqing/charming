@@ -1,16 +1,16 @@
 /* globals define */
-var f = function () {
+var charming = function() {
 
   'use strict';
 
-  return function (elem, opts) {
+  return function(elem, opts) {
 
     opts = opts || {};
     var tagName = opts.tagName || 'span',
         classPrefix = typeof opts.classPrefix !== 'undefined' ? opts.classPrefix : 'char',
         count = 1;
 
-    var traverse = function (elem) {
+    var traverse = function(elem) {
       var childNodes = Array.prototype.slice.call(elem.childNodes); // static array of nodes
       for (var i = 0, len = childNodes.length; i < len; i++) {
         traverse(childNodes[i]);
@@ -20,7 +20,7 @@ var f = function () {
       }
     };
 
-    var inject = function (elem) {
+    var inject = function(elem) {
       var str = elem.nodeValue,
           parentNode = elem.parentNode;
       for (var i = 0, len = str.length; i < len; i++) {
@@ -43,13 +43,12 @@ var f = function () {
 
 };
 
-/* istanbul ignore next */
-(function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) { // istanbul ignore
     define(factory);
-  } else if (typeof exports === 'object') {
+  } else if (typeof exports === 'object') { // istanbul ignore
     module.exports = factory;
   } else {
-    root.charm = factory(root);
+    root.charming = factory(root);
   }
-})(this, f);
+})(this, charming);
