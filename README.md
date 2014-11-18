@@ -27,7 +27,7 @@ Boom:
 </h1>
 ```
 
-Charming.js also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charming/blob/master/test/spec/charm.spec.js); any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
+Charming.js also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charming/blob/master/test/spec/charming.spec.js); any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
 
 ## API
 
@@ -60,14 +60,14 @@ charming(element, {
 
   Or just [grab the zip](https://github.com/yuanqing/charming/archive/master.zip).
 
-2. Include [the minified script](https://github.com/yuanqing/charming/blob/master/dist/charm.min.js) in your HTML:
+2. Include [the minified script](https://github.com/yuanqing/charming/blob/master/dist/charming.min.js) in your HTML:
 
   ```html
   <body>
     <!-- ... -->
-    <script src="path/to/charm/dist/charm.min.js"></script>
+    <script src="path/to/charming/dist/charming.min.js"></script>
     <script>
-      // charm available here
+      // charming available here
     </script>
   </body>
   ```
