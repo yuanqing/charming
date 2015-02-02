@@ -1,54 +1,49 @@
-/* globals define */
-var charming = function() {
+(function(fn) {
+  /* istanbul ignore else  */
+  if (typeof module === 'undefined') {
+    this.charming = fn;
+  } else {
+    module.exports = fn;
+  }
+})(function(elem, opts) {
 
   'use strict';
 
-  return function(elem, opts) {
+  opts = opts || {};
+  var tagName = opts.tagName || 'span';
+  var classPrefix = opts.classPrefix != null ? opts.classPrefix : 'char';
 
-    opts = opts || {};
-    var tagName = opts.tagName || 'span',
-        classPrefix = typeof opts.classPrefix !== 'undefined' ? opts.classPrefix : 'char',
-        count = 1;
+  var count = 1;
 
-    var traverse = function(elem) {
-      var childNodes = Array.prototype.slice.call(elem.childNodes); // static array of nodes
-      for (var i = 0, len = childNodes.length; i < len; i++) {
-        traverse(childNodes[i]);
+  var inject = function(elem) {
+    var parentNode = elem.parentNode;
+    var str = elem.nodeValue;
+    var len = str.length;
+    var i = -1;
+    while (++i < len) {
+      var node = document.createElement(tagName);
+      if (classPrefix) {
+        node.className = classPrefix + count;
+        count++;
       }
-      if (elem.nodeType === Node.TEXT_NODE) {
-        inject(elem);
-      }
-    };
-
-    var inject = function(elem) {
-      var str = elem.nodeValue,
-          parentNode = elem.parentNode;
-      for (var i = 0, len = str.length; i < len; i++) {
-        var node = document.createElement(tagName);
-        if (classPrefix) {
-          node.className = classPrefix + count;
-          count++;
-        }
-        node.appendChild(document.createTextNode(str[i]));
-        parentNode.insertBefore(node, elem);
-      }
-      parentNode.removeChild(elem);
-    };
-
-    traverse(elem);
-
-    return elem;
-
+      node.appendChild(document.createTextNode(str[i]));
+      parentNode.insertBefore(node, elem);
+    }
+    parentNode.removeChild(elem);
   };
 
-};
+  (function traverse(elem) {
+    var childNodes = [].slice.call(elem.childNodes); // static array of nodes
+    var len = childNodes.length;
+    var i = -1;
+    while (++i < len) {
+      traverse(childNodes[i]);
+    }
+    if (elem.nodeType === Node.TEXT_NODE) {
+      inject(elem);
+    }
+  })(elem);
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) { // istanbul ignore
-    define(factory);
-  } else if (typeof exports === 'object') { // istanbul ignore
-    module.exports = factory;
-  } else {
-    root.charming = factory(root);
-  }
-})(this, charming);
+  return elem;
+
+});
