@@ -1,10 +1,14 @@
-module.exports = function (config) {
+'use strict';
+
+module.exports = function(config) {
   config.set({
     basePath: '.',
     autoWatch: true,
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine', 'browserify'],
     browsers: ['PhantomJS'],
     plugins: [
+      'browserify-istanbul',
+      'karma-browserify',
       'karma-coverage',
       'karma-jasmine',
       'karma-phantomjs-launcher',
@@ -14,12 +18,30 @@ module.exports = function (config) {
       'coverage',
       'spec'
     ],
-    preprocessors: {
-      'src/*.js': ['coverage']
-    },
     coverageReporter: {
-      type: 'lcov',
-      dir: 'coverage/'
-    }
+      dir: 'coverage/',
+      subdir: '.',
+      reporters: [
+        { type: 'lcov' },
+        { type: 'text' }
+      ]
+    },
+    preprocessors: {
+      'test/*.js': ['browserify']
+    },
+    browserify: {
+      transform: [
+        [
+          'browserify-istanbul',
+          {
+            ignore: ['**/node_modules/**', '**/test/**'],
+            defaultIgnore: true
+          }
+        ]
+      ]
+    },
+    files: [
+      'test/*.js'
+    ]
   });
 };
