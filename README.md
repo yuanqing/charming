@@ -1,6 +1,9 @@
-# Charming.js [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
+# Charming.js [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
+
+- Optionally change the inserted DOM element (defaults to `span`), or change or remove the class prefix (defaults to `char`)
+- Just 0.53 KB [minified](https://github.com/yuanqing/charming/blob/master/charming.min.js), or 0.37 KB minified and gzipped
 
 ## Usage
 
@@ -27,13 +30,13 @@ Boom:
 </h1>
 ```
 
-Charming.js also works when [the given element contains other (possibly nested) DOM elements](https://github.com/yuanqing/charming/blob/master/test/spec/charming.spec.js); any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
+Charming also works when the given element contains other (possibly nested) DOM elements; any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
 
 ## API
 
-### charming(elem, [opts])
+### charming(elem [, opts])
 
-Pass in an `opts` object if you want to change the `tagName` and/or the `classPrefix`:
+Pass in an `opts` object if you want to change the `tagName` or `classPrefix`:
 
 ```js
 charming(element, {
@@ -52,26 +55,30 @@ charming(element, {
 
 ## Installation
 
-1. Install via [npm](https://www.npmjs.org/package/charming):
+Install via [npm](https://npmjs.com/):
 
-  ```bash
-  $ npm i --save charming
-  ```
+```bash
+$ npm i --save charming
+```
 
-  Or just [grab the zip](https://github.com/yuanqing/charming/archive/master.zip).
+Install via [bower](http://bower.io/):
 
-2. Include [the minified script](https://github.com/yuanqing/charming/blob/master/dist/charming.min.js) in your HTML:
+```bash
+$ bower i --save yuanqing/charming
+```
 
-  ```html
-  <body>
-    <!-- ... -->
-    <script src="path/to/charming/dist/charming.min.js"></script>
-    <script>
-      // charming available here
-    </script>
-  </body>
-  ```
+To use Charming in the browser, include [the minified script](https://github.com/yuanqing/charming/blob/master/charming.min.js) in your HTML:
+
+```html
+<body>
+  <!-- ... -->
+  <script src="path/to/charming.min.js"></script>
+  <script>
+    // charming available here
+  </script>
+</body>
+```
 
 ## License
 
-[MIT license](https://github.com/yuanqing/charming/blob/master/LICENSE)
+[MIT](https://github.com/yuanqing/charming/blob/master/LICENSE)
