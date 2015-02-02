@@ -79,6 +79,11 @@ To use Charming in the browser, include [the minified script](https://github.com
 </body>
 ```
 
+## Changelog
+
+- 1.0.0
+  - Initial release
+
 ## License
 
 [MIT](https://github.com/yuanqing/charming/blob/master/LICENSE)
