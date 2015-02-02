@@ -1,4 +1,7 @@
-/* globals describe, it, expect, charming */
+/* globals describe, it, expect */
+'use strict';
+
+var charming = require('../');
 
 describe('charming(elem, opts)', function() {
 
