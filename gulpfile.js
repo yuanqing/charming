@@ -38,7 +38,7 @@ gulp.task('dist', ['clean'], function() {
 gulp.task('test', function() {
   return gulp.src(paths.src.concat(paths.test))
     .pipe(plumber())
-    .pipe(karma({ configFile: 'test/karma.conf.js' }))
+    .pipe(karma({ configFile: 'karma.conf.js' }))
     .on('error', function(err) { throw err; });
 });
 
