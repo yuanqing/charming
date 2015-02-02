@@ -1,5 +1,5 @@
 (function(fn) {
-  /* istanbul ignore else  */
+  /* istanbul ignore if  */
   if (typeof module === 'undefined') {
     this.charming = fn;
   } else {
