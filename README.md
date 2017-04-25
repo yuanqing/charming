@@ -3,7 +3,7 @@
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 - Optionally change the inserted DOM element (defaults to `span`), or change or remove the class prefix (defaults to `char`)
-- Just 0.53 KB [minified](https://github.com/yuanqing/charming/blob/master/charming.min.js), or 0.37 KB minified and gzipped
+- Just 0.55 KB minified, or 0.36 KB minified and gzipped
 
 ## Usage
 
@@ -16,8 +16,10 @@ HTML:
 JavaScript:
 
 ```js
-var element = document.querySelectorAll('h1')[0];
-charming(element);
+const charming = require('charming')
+
+const element = document.querySelector('h1')
+charming(element)
 ```
 
 Boom:
@@ -34,6 +36,10 @@ Charming also works when the given element contains other (possibly nested) DOM 
 
 ## API
 
+```js
+const charming = require('charming')
+```
+
 ### charming(elem [, opts])
 
 Pass in an `opts` object if you want to change the `tagName` or `classPrefix`:
@@ -42,7 +48,7 @@ Pass in an `opts` object if you want to change the `tagName` or `classPrefix`:
 charming(element, {
   tagName: 'b', // defaults to 'span'
   classPrefix: 'letter' // defaults to 'char'
-});
+})
 ```
 
 Set `classPrefix` to `false` if you don&rsquo;t need a class on each wrapper element:
@@ -50,33 +56,15 @@ Set `classPrefix` to `false` if you don&rsquo;t need a class on each wrapper ele
 ```js
 charming(element, {
   classPrefix: false
-});
+})
 ```
 
 ## Installation
 
-Install via [npm](https://npmjs.com/):
+Install via [yarn](https://yarnpkg.com):
 
 ```bash
-$ npm i --save charming
-```
-
-Install via [bower](http://bower.io/):
-
-```bash
-$ bower i --save yuanqing/charming
-```
-
-To use Charming in the browser, include [the minified script](https://github.com/yuanqing/charming/blob/master/charming.min.js) in your HTML:
-
-```html
-<body>
-  <!-- ... -->
-  <script src="path/to/charming.min.js"></script>
-  <script>
-    // charming available here
-  </script>
-</body>
+$ yarn add charming
 ```
 
 ## Changelog
@@ -86,4 +74,4 @@ To use Charming in the browser, include [the minified script](https://github.com
 
 ## License
 
-[MIT](https://github.com/yuanqing/charming/blob/master/LICENSE)
+[MIT](https://github.com/yuanqing/charming/blob/master/LICENSE.md)
