@@ -1,11 +1,13 @@
 language: node_js
 
 node_js:
-  - '0.10'
-  - '0.11'
+  - '6'
+  - 'stable'
 
 script:
-  - gulp
+  - yarn run lint
+  - yarn run coverage
 
 after_success:
+  - yarn add coveralls
   - cat coverage/lcov.info | coveralls

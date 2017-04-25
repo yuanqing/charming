@@ -53,6 +53,7 @@
     return element
   }
 
+  /* istanbul ignore else  */
   if (typeof module === 'object') {
     module.exports = Charming
   } else {
