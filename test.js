@@ -1,5 +1,5 @@
 const test = require('tape')
-const charming = require('../')
+const charming = require('./')
 
 function createElement(innerHTML) {
   const elem = document.createElement('div')

@@ -8,17 +8,16 @@
     "type": "git",
     "url": "git://github.com/yuanqing/charming.git"
   },
-  "main": "charming.js",
   "devDependencies": {
     "browserify": "^14.3.0",
     "browserify-istanbul": "^2.0.0",
     "istanbul": "^0.4.5",
+    "mkdirp": "^0.5.1",
     "prettier": "^1.2.2",
     "rimraf": "^2.6.1",
     "tape": "^4.6.3",
     "tape-istanbul": "^1.0.4",
-    "tape-run": "^3.0.0",
-    "uglify-js": "^2.8.22"
+    "tape-run": "^3.0.0"
   },
   "keywords": [
     "kerning",
@@ -27,12 +26,11 @@
     "typography"
   ],
   "scripts": {
-    "build": "uglifyjs --compress --mangle --output charming.min.js -- charming.js",
-    "clean": "rimraf charming.min.js coverage.json coverage",
+    "clean": "rimraf coverage",
     "coverage": "yarn run coverage:test && yarn run coverage:report",
-    "coverage:test": "browserify test/*.js --plugin tape-istanbul/plugin | tape-run | tape-istanbul --output coverage.json",
-    "coverage:report": "istanbul report --include coverage.json",
-    "lint": "prettier *.js test/*.js --no-semi --single-quote --write",
-    "test": "browserify test/*.js | tape-run"
+    "coverage:test": "mkdirp coverage && browserify test.js --plugin tape-istanbul/plugin | tape-run | tape-istanbul --output coverage/coverage.json",
+    "coverage:report": "istanbul report --include coverage/coverage.json",
+    "lint": "prettier *.js --no-semi --single-quote --write",
+    "test": "browserify test.js | tape-run"
   }
 }
