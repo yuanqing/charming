@@ -40,9 +40,9 @@ Charming also works when the given element contains other (possibly nested) DOM 
 const charming = require('charming')
 ```
 
-### charming(elem [, opts])
+### charming(element [, options])
 
-Pass in an `opts` object if you want to change the `tagName` or `classPrefix`:
+Pass in an `options` object if you want to change the `tagName` or `classPrefix`:
 
 ```js
 charming(element, {
