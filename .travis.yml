@@ -9,5 +9,5 @@ script:
   - yarn run coverage
 
 after_success:
-  - yarn add coveralls
-  - cat coverage/lcov.info | coveralls
+  - yarn add --dev coveralls
+  - cat coverage/lcov.info | ./node_modules/.bin/coveralls
