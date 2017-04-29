@@ -20,7 +20,6 @@ module.exports = function(element, options) {
       parentNode.insertBefore(node, element)
     }
     parentNode.removeChild(element)
-    return element
   }
 
   ;(function traverse(element) {
@@ -33,8 +32,7 @@ module.exports = function(element, options) {
     var childNodes = Array.prototype.slice.call(element.childNodes) // static array of nodes
     var length = childNodes.length
     if (length === 1 && childNodes[0].nodeType === Node.TEXT_NODE) {
-      inject(childNodes[0])
-      return element
+      return inject(childNodes[0])
     }
 
     // `element` has more than one child node.
@@ -42,6 +40,5 @@ module.exports = function(element, options) {
     while (++i < length) {
       traverse(childNodes[i])
     }
-    return element
   })(element)
 }
