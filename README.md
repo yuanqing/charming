@@ -1,9 +1,9 @@
-# Charming.js [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
+# Charming [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 - Optionally change the inserted DOM element (defaults to `span`), or change or remove the class prefix (defaults to `char`)
-- Just 0.55 KB minified, or 0.36 KB minified and gzipped
+- Just 0.53 KB minified, or 0.35 KB minified and gzipped
 
 ## Usage
 
@@ -65,6 +65,12 @@ Install via [yarn](https://yarnpkg.com):
 
 ```bash
 $ yarn add charming
+```
+
+Or [npm](https://npmjs.com):
+
+```bash
+$ npm install --save charming
 ```
 
 ## Changelog
