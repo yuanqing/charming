@@ -73,11 +73,6 @@ Or [npm](https://npmjs.com):
 $ npm install --save charming
 ```
 
-## Changelog
-
-- 1.0.0
-  - Initial release
-
 ## License
 
 [MIT](https://github.com/yuanqing/charming/blob/master/LICENSE.md)
