@@ -34,7 +34,7 @@ Boom:
 
 Charming also works when the given element contains other (possibly nested) DOM elements; any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
 
-[**CodePen Demo**](https://codepen.io/anon/pen/NgNmwB)
+[**CodePen Demo**](https://codepen.io/anon/pen/WOxNqX)
 
 ## API
 
