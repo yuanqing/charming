@@ -1,11 +1,11 @@
-module.exports = function(element, options) {
+module.exports = function (element, options) {
   options = options || {}
 
   var tagName = options.tagName || 'span'
   var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
   var count = 1
 
-  function inject(element) {
+  function inject (element) {
     var parentNode = element.parentNode
     var string = element.nodeValue
     var length = string.length
@@ -22,7 +22,7 @@ module.exports = function(element, options) {
     parentNode.removeChild(element)
   }
 
-  ;(function traverse(element) {
+  ;(function traverse (element) {
     // `element` is itself a text node.
     if (element.nodeType === Node.TEXT_NODE) {
       return inject(element)

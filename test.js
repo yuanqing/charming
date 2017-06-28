@@ -1,21 +1,21 @@
 const test = require('tape')
 const charming = require('./')
 
-function createElement(innerHTML) {
+function createElement (innerHTML) {
   const elem = document.createElement('div')
   elem.innerHTML = innerHTML || ''
   document.body.appendChild(elem)
   return elem
 }
 
-test('should not inject spans when `elem` has no child nodes', function(t) {
+test('should not inject spans when `elem` has no child nodes', function (t) {
   t.plan(1)
   const elem = createElement()
   charming(elem)
   t.equal(elem.innerHTML, '')
 })
 
-test('should not inject spans when `elem` has no child text nodes', function(
+test('should not inject spans when `elem` has no child text nodes', function (
   t
 ) {
   t.plan(1)
@@ -25,7 +25,7 @@ test('should not inject spans when `elem` has no child text nodes', function(
   t.equal(elem.innerHTML, innerHTML)
 })
 
-test('should inject spans when `elem` has a single child text node', function(
+test('should inject spans when `elem` has a single child text node', function (
   t
 ) {
   t.plan(1)
@@ -37,7 +37,7 @@ test('should inject spans when `elem` has a single child text node', function(
   )
 })
 
-test('should inject spans when `elem` has multiple child text nodes', function(
+test('should inject spans when `elem` has multiple child text nodes', function (
   t
 ) {
   t.plan(1)
@@ -51,7 +51,7 @@ test('should inject spans when `elem` has multiple child text nodes', function(
   )
 })
 
-test('can inject custom tags', function(t) {
+test('can inject custom tags', function (t) {
   t.plan(1)
   const elem = createElement('foo')
   charming(elem, {
@@ -63,7 +63,7 @@ test('can inject custom tags', function(t) {
   )
 })
 
-test('can inject spans without classes', function(t) {
+test('can inject spans without classes', function (t) {
   t.plan(1)
   const elem = createElement('foo')
   charming(elem, {
@@ -72,7 +72,7 @@ test('can inject spans without classes', function(t) {
   t.equal(elem.innerHTML, '<span>f</span><span>o</span><span>o</span>')
 })
 
-test('can inject spans with a custom class prefix', function(t) {
+test('can inject spans with a custom class prefix', function (t) {
   t.plan(1)
   const elem = createElement('foo')
   charming(elem, {
