@@ -3,6 +3,7 @@ module.exports = function (element, options) {
 
   var tagName = options.tagName || 'span'
   var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
+  var range = options.range > 1 ? options.range : 1
   var count = 1
 
   function inject (element) {
@@ -11,10 +12,14 @@ module.exports = function (element, options) {
     var length = string.length
     var i = -1
     while (++i < length) {
+      var r = string.slice(i*range, (i+1)*range)
       var node = document.createElement(tagName)
       if (classPrefix) {
         node.className = classPrefix + count
         count++
+      }
+      if (r.length) {
+        node.appendChild(document.createTextNode(r))
       }
       node.appendChild(document.createTextNode(string[i]))
       parentNode.insertBefore(node, element)

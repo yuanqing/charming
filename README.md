@@ -44,12 +44,13 @@ const charming = require('charming')
 
 ### charming(element [, options])
 
-Pass in an `options` object if you want to change the `tagName` or `classPrefix`:
+Pass in an `options` object if you want to change the `tagName`, `classPrefix` or `range`:
 
 ```js
 charming(element, {
   tagName: 'b', // defaults to 'span'
-  classPrefix: 'letter' // defaults to 'char'
+  classPrefix: 'letter', // defaults to 'char'
+  range: 2
 })
 ```
 
