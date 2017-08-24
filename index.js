@@ -7,7 +7,7 @@ module.exports = function (element, options) {
 
   function inject (element) {
     var parentNode = element.parentNode
-    var string = element.nodeValue
+    var string = element.nodeValue.trim()
     var length = string.length
     var i = -1
     while (++i < length) {
