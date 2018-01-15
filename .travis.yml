@@ -4,8 +4,8 @@ notifications:
 language: node_js
 
 node_js:
-  - '6'
-  - 'stable'
+  - 'node'
+  - '8'
 
 before_script:
   - export CHROME_BIN=chromium-browser
