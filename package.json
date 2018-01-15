@@ -9,10 +9,10 @@
     "url": "git://github.com/yuanqing/charming.git"
   },
   "devDependencies": {
-    "browserify": "^14.3.0",
-    "browserify-istanbul": "^2.0.0",
+    "browserify": "^15.2.0",
+    "browserify-istanbul": "^3.0.1",
     "istanbul": "^0.4.5",
-    "prettier-standard": "^6.0.0",
+    "prettier-standard": "^8.0.0",
     "rimraf": "^2.6.1",
     "tape": "^4.6.3",
     "tape-istanbul": "^1.0.4",
