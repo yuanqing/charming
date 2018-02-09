@@ -69,7 +69,6 @@ test('can inject custom tags', function (t) {
 test('can inject spans without classes', function (t) {
   t.plan(2)
   const elem = createElement('foo')
-  
   charming(elem, {
     classPrefix: false
   })
