@@ -9,20 +9,22 @@ function createElement (innerHTML) {
 }
 
 test('should not inject spans when `elem` has no child nodes', function (t) {
-  t.plan(1)
+  t.plan(2)
   const elem = createElement()
   charming(elem)
   t.equal(elem.innerHTML, '')
+  t.equal(elem.getAttribute('aria-label'), null)
 })
 
 test('should not inject spans when `elem` has no child text nodes', function (
   t
 ) {
-  t.plan(1)
+  t.plan(2)
   const innerHTML = '<span></span>'
   const elem = createElement(innerHTML)
   charming(elem)
   t.equal(elem.innerHTML, innerHTML)
+  t.equal(elem.getAttribute('aria-label'), null)
 })
 
 test('should inject spans when `elem` has a single child text node', function (
