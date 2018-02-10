@@ -9,7 +9,6 @@ module.exports = function (element, options, regex) {
 
   function inject (element) {
     var string = element.nodeValue;
-    console.log(string);
     var parentNode = element.parentNode;
     var letter_data = [];
     if (regex){
@@ -17,7 +16,6 @@ module.exports = function (element, options, regex) {
     } else {
       letter_data = string.split('');
     }
-    console.log(letter_data);
     var length = letter_data.length;
     for (var i = 0; i < length; i++){
       var node = document.createElement(tagName);
@@ -29,7 +27,6 @@ module.exports = function (element, options, regex) {
       node.setAttribute('aria-hidden', 'true');
       parentNode.insertBefore(node, element);
     }
-    console.log(parentNode);
     if (string.trim() != "") {
       parentNode.setAttribute('aria-label', string);
     }
