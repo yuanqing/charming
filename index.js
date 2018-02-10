@@ -1,49 +1,58 @@
-module.exports = function (element, options) {
-  options = options || {}
-  element.normalize()
+module.exports = function (element, options, regex) {
+  options = options || {};
+  element.normalize();
+  regex = regex || null;
 
-  var tagName = options.tagName || 'span'
-  var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
-  var count = 1
+  var tagName = options.tagName || 'span';
+  var classPrefix = options.classPrefix != null ? options.classPrefix : 'char';
+  var count = 1;
 
   function inject (element) {
-    var parentNode = element.parentNode
-    var string = element.nodeValue
-    var length = string.length
-    var i = -1
-    while (++i < length) {
-      var node = document.createElement(tagName)
+    var string = element.nodeValue;
+    console.log(string);
+    var parentNode = element.parentNode;
+    var letter_data = [];
+    if (regex){
+      letter_data = string.match(regex);
+    } else {
+      letter_data = string.split('');
+    }
+    console.log(letter_data);
+    var length = letter_data.length;
+    for (var i = 0; i < length; i++){
+      var node = document.createElement(tagName);
       if (classPrefix) {
-        node.className = classPrefix + count
-        count++
+        node.className = classPrefix + count;
+        count++;
       }
-      node.appendChild(document.createTextNode(string[i]))
-      node.setAttribute('aria-hidden', 'true')
-      parentNode.insertBefore(node, element)
+      node.appendChild(document.createTextNode(letter_data[i]));
+      node.setAttribute('aria-hidden', 'true');
+      parentNode.insertBefore(node, element);
     }
-    if (string.trim() !== '') {
-      parentNode.setAttribute('aria-label', string)
+    console.log(parentNode);
+    if (string.trim() != "") {
+      parentNode.setAttribute('aria-label', string);
     }
-    parentNode.removeChild(element)
-  }
-
-  ;(function traverse (element) {
+    parentNode.removeChild(element);
+  };
+  
+  (function traverse (element) {
     // `element` is itself a text node.
     if (element.nodeType === Node.TEXT_NODE) {
-      return inject(element)
+      return inject(element);
     }
 
     // `element` has a single child text node.
-    var childNodes = Array.prototype.slice.call(element.childNodes) // static array of nodes
-    var length = childNodes.length
+    var childNodes = Array.prototype.slice.call(element.childNodes); // static array of nodes
+    var length = childNodes.length;
     if (length === 1 && childNodes[0].nodeType === Node.TEXT_NODE) {
-      return inject(childNodes[0])
+      return inject(childNodes[0]);
     }
 
     // `element` has more than one child node.
-    var i = -1
+    var i = -1;
     while (++i < length) {
-      traverse(childNodes[i])
+      traverse(childNodes[i]);
     }
-  })(element)
+  })(element);
 }
