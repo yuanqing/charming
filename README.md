@@ -3,7 +3,7 @@
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 - Optionally change the inserted DOM element (defaults to `span`), or change or remove the class prefix (defaults to `char`)
-- Just 0.53 KB minified, or 0.35 KB minified and gzipped
+- Just 0.63 KB minified, or 0.42 KB minified and gzipped
 
 ## Usage
 
@@ -27,14 +27,15 @@ charming(element)
 Boom:
 
 ```html
-<h1>
-  <span class="char1">f</span>
-  <span class="char2">o</span>
-  <span class="char3">o</span>
+<h1 aria-label="foo">
+  <span class="char1" aria-hidden="true">f</span>
+  <span class="char2" aria-hidden="true">o</span>
+  <span class="char3" aria-hidden="true">o</span>
 </h1>
 ```
 
-Charming also works when the given element contains other (possibly nested) DOM elements; any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
+- Charming also works when the given element contains other (possibly nested) DOM elements; any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
+- For accessibility, Charming adds an `aria-label` attribute on the element and `aria-hidden` attributes on each of the inserted DOM elements.
 
 ## API
 
@@ -77,4 +78,4 @@ $ npm install --save charming
 
 ## License
 
-[MIT](https://github.com/yuanqing/charming/blob/master/LICENSE.md)
+[MIT](LICENSE.md)
