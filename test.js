@@ -55,6 +55,21 @@ test('should inject spans when `elem` has multiple child text nodes', function (
   )
 })
 
+test('should correctly set `aria-label` when `elem` contains adjacent child text nodes', function (
+  t
+) {
+  t.plan(2)
+  const elem = createElement()
+  elem.appendChild(document.createTextNode('foo'))
+  elem.appendChild(document.createTextNode('bar'))
+  charming(elem)
+  t.equal(elem.getAttribute('aria-label'), 'foobar')
+  t.equal(
+    elem.innerHTML,
+    '<span class="char1" aria-hidden="true">f</span><span class="char2" aria-hidden="true">o</span><span class="char3" aria-hidden="true">o</span><span class="char4" aria-hidden="true">b</span><span class="char5" aria-hidden="true">a</span><span class="char6" aria-hidden="true">r</span>'
+  )
+})
+
 test('can inject custom tags', function (t) {
   t.plan(2)
   const elem = createElement('foo')
