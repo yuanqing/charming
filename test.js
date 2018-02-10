@@ -16,9 +16,7 @@ test('should not inject spans when `elem` has no child nodes', function (t) {
   t.equal(elem.getAttribute('aria-label'), null)
 })
 
-test('should not inject spans when `elem` has no child text nodes', function (
-  t
-) {
+test('should not inject spans when `elem` has no child text nodes', function (t) {
   t.plan(2)
   const innerHTML = '<span></span>'
   const elem = createElement(innerHTML)
@@ -27,9 +25,7 @@ test('should not inject spans when `elem` has no child text nodes', function (
   t.equal(elem.getAttribute('aria-label'), null)
 })
 
-test('should inject spans when `elem` has a single child text node', function (
-  t
-) {
+test('should inject spans when `elem` has a single child text node', function (t) {
   t.plan(2)
   const elem = createElement('foo')
   charming(elem)
@@ -40,9 +36,7 @@ test('should inject spans when `elem` has a single child text node', function (
   )
 })
 
-test('should inject spans when `elem` has multiple child text nodes', function (
-  t
-) {
+test('should inject spans when `elem` has multiple child text nodes', function (t) {
   t.plan(2)
   const elem = createElement(
     '<span>foo</span> <span>bar <span>baz</span></span>'
@@ -55,9 +49,7 @@ test('should inject spans when `elem` has multiple child text nodes', function (
   )
 })
 
-test('should correctly set `aria-label` when `elem` contains adjacent child text nodes', function (
-  t
-) {
+test('should correctly set `aria-label` when `elem` contains adjacent child text nodes', function (t) {
   t.plan(2)
   const elem = createElement()
   elem.appendChild(document.createTextNode('foo'))
@@ -90,7 +82,10 @@ test('can inject spans without classes', function (t) {
     classPrefix: false
   })
   t.equal(elem.getAttribute('aria-label'), 'foo')
-  t.equal(elem.innerHTML, '<span aria-hidden="true">f</span><span aria-hidden="true">o</span><span aria-hidden="true">o</span>')
+  t.equal(
+    elem.innerHTML,
+    '<span aria-hidden="true">f</span><span aria-hidden="true">o</span><span aria-hidden="true">o</span>'
+  )
 })
 
 test('can inject spans with a custom class prefix', function (t) {
