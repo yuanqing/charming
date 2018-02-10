@@ -1,5 +1,6 @@
 module.exports = function (element, options) {
   options = options || {}
+  element.normalize()
 
   var tagName = options.tagName || 'span'
   var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
@@ -17,7 +18,11 @@ module.exports = function (element, options) {
         count++
       }
       node.appendChild(document.createTextNode(string[i]))
+      node.setAttribute('aria-hidden', 'true')
       parentNode.insertBefore(node, element)
+    }
+    if (string.trim() !== '') {
+      parentNode.setAttribute('aria-label', string)
     }
     parentNode.removeChild(element)
   }
