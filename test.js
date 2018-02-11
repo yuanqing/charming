@@ -108,7 +108,7 @@ test('should support regex to split instead of letters.', function (t) {
     '<span>আদর্শ লিপি</span>'
   );
   var bengaliUnitRegex = /([অ-হ](্[অ-হ])+|[অ-হ]্|[অ-হ])[া-ৌ]*ঁ*|ৎ| /g
-  charming(element, {}, bengaliUnitRegex);
+  charming(element, {splitRegex: bengaliUnitRegex});
   t.equal(element.getAttribute('aria-label'), null)
   t.equal(
     element.innerHTML,

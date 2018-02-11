@@ -1,33 +1,29 @@
-module.exports = function (element, options, regex) {
+module.exports = function (element, options) {
   options = options || {}
   element.normalize()
-  regex = regex || null
+  var splitRegex = options.splitRegex
 
   var tagName = options.tagName || 'span'
   var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
   var count = 1
 
   function inject (element) {
-    var string = element.nodeValue
     var parentNode = element.parentNode
-    var letter_data = []
-    if (regex) {
-      letter_data = string.match(regex)
-    } else {
-      letter_data = string.split('')
-    }
-    var length = letter_data.length
-    for (var i = 0; i < length; i++) {
+    var string = element.nodeValue
+    var split = splitRegex ? string.split(splitRegex) : string
+    var length = split.length
+    var i = -1
+    while (++i < length)  {
       var node = document.createElement(tagName)
       if (classPrefix) {
         node.className = classPrefix + count
         count++
       }
-      node.appendChild(document.createTextNode(letter_data[i]))
+      node.appendChild(document.createTextNode(split[i]))
       node.setAttribute('aria-hidden', 'true')
       parentNode.insertBefore(node, element)
     }
-    if (string.trim() != '') {
+    if (string.trim() !== '') {
       parentNode.setAttribute('aria-label', string)
     }
     parentNode.removeChild(element)
