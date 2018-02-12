@@ -101,7 +101,7 @@ test('can inject spans with a custom class prefix', function (t) {
   )
 })
 
-test('should support regex to split instead of letters.', function (t) {
+test('can support passing in a regular expression for splitting the `element`', function (t) {
   t.plan(2)
   const element = createElement('foo bar')
   charming(element, {
