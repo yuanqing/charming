@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.2.0
+
+- Add support for passing in a regular expression to define how the contents of `element` are wrapped
+
+## 2.1.0
+
+- Add `aria-label` and `aria-hidden` attributes for accessibility
+
 ## 2.0.1
 
 - Add a [CodePen demo](https://codepen.io/anon/pen/WOxNqX)
