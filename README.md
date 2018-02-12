@@ -2,8 +2,9 @@
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
-- Optionally change the inserted DOM element (defaults to `span`), or change or remove the class prefix (defaults to `char`)
-- Just 0.63 KB minified, or 0.42 KB minified and gzipped
+- Optionally changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
+- Optionally pass in a regular expression to change how the contents of the element are wrapped
+- 0.66 KB minified, or 0.43 KB minified and gzipped
 
 ## Usage
 
@@ -49,8 +50,8 @@ Pass in an `options` object if you want to change the `tagName` or `classPrefix`
 
 ```js
 charming(element, {
-  tagName: 'b', // defaults to 'span'
-  classPrefix: 'letter' // defaults to 'char'
+  tagName: 'b', // defaults to `span`
+  classPrefix: 'letter' // defaults to `char`
 })
 ```
 
@@ -59,6 +60,15 @@ Set `classPrefix` to `false` if you don&rsquo;t need a class on each wrapper ele
 ```js
 charming(element, {
   classPrefix: false
+})
+```
+
+Pass in a regular expression via `splitRegex` to change how the contents of the element are wrapped:
+
+```js
+charming(element, {
+  splitRegex: /(\s+)/, // defaults to `null`
+  classPrefix: 'word'
 })
 ```
 
