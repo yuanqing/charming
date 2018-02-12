@@ -101,17 +101,16 @@ test('can inject spans with a custom class prefix', function (t) {
   )
 })
 
-
 test('should support regex to split instead of letters.', function (t) {
   t.plan(2)
-  const element = createElement(
-    '<span>আদর্শ লিপি</span>'
-  );
-  var bengaliUnitRegex = /([অ-হ](্[অ-হ])+|[অ-হ]্|[অ-হ])[া-ৌ]*ঁ*|ৎ| /g
-  charming(element, {splitRegex: bengaliUnitRegex});
-  t.equal(element.getAttribute('aria-label'), null)
+  const element = createElement('foo bar')
+  charming(element, {
+    splitRegex: /(\s+)/,
+    classPrefix: 'word'
+  })
+  t.equal(element.getAttribute('aria-label'), 'foo bar')
   t.equal(
     element.innerHTML,
-    '<span aria-label="আদর্শ লিপি"><span class="char1" aria-hidden="true">আ</span><span class="char2" aria-hidden="true">দ</span><span class="char3" aria-hidden="true">র্শ</span><span class="char4" aria-hidden="true"> </span><span class="char5" aria-hidden="true">লি</span><span class="char6" aria-hidden="true">পি</span></span>'
-  );
-});
+    '<span class="word1" aria-hidden="true">foo</span><span class="word2" aria-hidden="true"> </span><span class="word3" aria-hidden="true">bar</span>'
+  )
+})

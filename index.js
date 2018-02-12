@@ -13,7 +13,7 @@ module.exports = function (element, options) {
     var split = splitRegex ? string.split(splitRegex) : string
     var length = split.length
     var i = -1
-    while (++i < length)  {
+    while (++i < length) {
       var node = document.createElement(tagName)
       if (classPrefix) {
         node.className = classPrefix + count
