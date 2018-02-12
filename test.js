@@ -100,3 +100,17 @@ test('can inject spans with a custom class prefix', function (t) {
     '<span class="c1" aria-hidden="true">f</span><span class="c2" aria-hidden="true">o</span><span class="c3" aria-hidden="true">o</span>'
   )
 })
+
+test('should support regex to split instead of letters.', function (t) {
+  t.plan(2)
+  const element = createElement('foo bar')
+  charming(element, {
+    splitRegex: /(\s+)/,
+    classPrefix: 'word'
+  })
+  t.equal(element.getAttribute('aria-label'), 'foo bar')
+  t.equal(
+    element.innerHTML,
+    '<span class="word1" aria-hidden="true">foo</span><span class="word2" aria-hidden="true"> </span><span class="word3" aria-hidden="true">bar</span>'
+  )
+})

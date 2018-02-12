@@ -1,6 +1,7 @@
 module.exports = function (element, options) {
   options = options || {}
   element.normalize()
+  var splitRegex = options.splitRegex
 
   var tagName = options.tagName || 'span'
   var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
@@ -9,7 +10,8 @@ module.exports = function (element, options) {
   function inject (element) {
     var parentNode = element.parentNode
     var string = element.nodeValue
-    var length = string.length
+    var split = splitRegex ? string.split(splitRegex) : string
+    var length = split.length
     var i = -1
     while (++i < length) {
       var node = document.createElement(tagName)
@@ -17,7 +19,7 @@ module.exports = function (element, options) {
         node.className = classPrefix + count
         count++
       }
-      node.appendChild(document.createTextNode(string[i]))
+      node.appendChild(document.createTextNode(split[i]))
       node.setAttribute('aria-hidden', 'true')
       parentNode.insertBefore(node, element)
     }
