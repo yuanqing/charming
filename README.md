@@ -2,9 +2,9 @@
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
-- Optionally changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
-- Optionally pass in a regular expression to change how the contents of the element are wrapped
-- 0.66 KB minified, or 0.43 KB minified and gzipped
+- Supports changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
+- Supports passing in a regular expression to control how the contents of the element are wrapped
+- 0.43 KB gzipped
 
 ## Usage
 
@@ -36,7 +36,7 @@ Boom:
 ```
 
 - Charming also works when the given element contains other (possibly nested) DOM elements; any character that is inside a [text node](https://developer.mozilla.org/en-US/docs/Web/API/Text) in the given element will be wrapped.
-- For accessibility, Charming adds an `aria-label` attribute on the element and `aria-hidden` attributes on each of the inserted DOM elements.
+- For accessibility, Charming adds an `aria-label` attribute on the given element and `aria-hidden` attributes on each of the inserted DOM elements.
 
 ## API
 
@@ -46,12 +46,12 @@ const charming = require('charming')
 
 ### charming(element [, options])
 
-Pass in an `options` object if you want to change the `tagName` or `classPrefix`:
+Pass in an `options` object to change the `tagName` or `classPrefix`:
 
 ```js
 charming(element, {
-  tagName: 'b', // defaults to `span`
-  classPrefix: 'letter' // defaults to `char`
+  tagName: 'b',
+  classPrefix: 'letter'
 })
 ```
 
@@ -63,11 +63,11 @@ charming(element, {
 })
 ```
 
-Pass in a regular expression via `splitRegex` to change how the contents of the element are wrapped:
+Pass in a regular expression on the `splitRegex` key to control how the contents of the element are wrapped:
 
 ```js
 charming(element, {
-  splitRegex: /(\s+)/, // defaults to `null`
+  splitRegex: /(\s+)/,
   classPrefix: 'word'
 })
 ```
