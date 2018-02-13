@@ -2,7 +2,7 @@
 
 ## 2.2.0
 
-- Add support for passing in a regular expression to define how the contents of `element` are wrapped
+- Add support for passing in a regular expression to control how the contents of the element are wrapped
 
 ## 2.1.0
 
