@@ -9,22 +9,16 @@
     "url": "git://github.com/yuanqing/charming.git"
   },
   "devDependencies": {
-    "browserify": "^16.0.0",
+    "browserify": "^16.1.0",
     "browserify-istanbul": "^3.0.1",
     "gzip-size-cli": "^2.1.0",
     "istanbul": "^0.4.5",
     "prettier-standard": "^8.0.0",
     "tape": "^4.6.3",
     "tape-istanbul": "^1.0.4",
-    "tape-run": "^3.0.3",
+    "tape-run": "^3.0.4",
     "uglify-js": "^3.3.11"
   },
-  "keywords": [
-    "kerning",
-    "lettering",
-    "span",
-    "typography"
-  ],
   "scripts": {
     "clean": "rm -rf coverage",
     "coverage": "yarn run coverage:test && yarn run coverage:report",
@@ -33,5 +27,11 @@
     "lint": "prettier-standard *.js --no-semi --single-quote --write",
     "test": "browserify test.js | tape-run",
     "weight": "uglifyjs index.js --compress --mangle --toplevel | gzip-size"
-  }
+  },
+  "keywords": [
+    "kerning",
+    "lettering",
+    "span",
+    "typography"
+  ]
 }
