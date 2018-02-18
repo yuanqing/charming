@@ -1,14 +1,14 @@
-# Charming [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
+# charming [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 - Supports changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
 - Supports passing in a regular expression to control how the contents of the element are wrapped
-- 0.43 KB gzipped
+- 423 bytes gzipped
 
 ## Usage
 
-> [**Editable demo (CodePen)**](https://codepen.io/anon/pen/WOxNqX)
+> [**Editable demo (CodePen)**](https://codepen.io/lyuanqing/pen/YeYdrm)
 
 HTML:
 
@@ -76,13 +76,13 @@ charming(element, {
 
 Install via [yarn](https://yarnpkg.com):
 
-```bash
+```sh
 $ yarn add charming
 ```
 
 Or [npm](https://npmjs.com):
 
-```bash
+```sh
 $ npm install --save charming
 ```
 
