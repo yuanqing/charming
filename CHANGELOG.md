@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.2.1
+
+- Add `standard`
+- Bump dependencies
+
 ## 2.2.0
 
 - Add support for passing in a regular expression to control how the contents of the element are wrapped
