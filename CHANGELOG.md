@@ -1,9 +1,13 @@
 # Changelog
 
-## 2.2.1
+## 2.2.2
 
 - Add `standard`
 - Bump dependencies
+
+## 2.2.1
+
+- Add `weight` script
 
 ## 2.2.0
 
