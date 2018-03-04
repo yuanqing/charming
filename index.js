@@ -31,14 +31,14 @@ module.exports = function (element, options) {
 
   ;(function traverse (element) {
     // `element` is itself a text node.
-    if (element.nodeType === Node.TEXT_NODE) {
+    if (element.nodeType === 3) {
       return inject(element)
     }
 
     // `element` has a single child text node.
     var childNodes = Array.prototype.slice.call(element.childNodes) // static array of nodes
     var length = childNodes.length
-    if (length === 1 && childNodes[0].nodeType === Node.TEXT_NODE) {
+    if (length === 1 && childNodes[0].nodeType === 3) {
       return inject(childNodes[0])
     }
 
