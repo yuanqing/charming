@@ -4,7 +4,7 @@
 
 - Supports changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
 - Supports passing in a regular expression to control how the contents of the element are wrapped
-- 413 bytes gzipped
+- 414 bytes gzipped
 
 ## Usage
 
