@@ -9,16 +9,16 @@
     "url": "git://github.com/yuanqing/charming.git"
   },
   "devDependencies": {
-    "browserify": "^16.1.0",
+    "browserify": "^16.1.1",
     "browserify-istanbul": "^3.0.1",
     "gzip-size-cli": "^2.1.0",
     "istanbul": "^0.4.5",
     "prettier-standard": "^8.0.0",
-    "standard": "^11.0.0",
+    "standard": "^11.0.1",
     "tape": "^4.9.0",
     "tape-istanbul": "^1.2.0",
     "tape-run": "^3.0.4",
-    "uglify-js": "^3.3.12"
+    "uglify-js": "^3.3.16"
   },
   "scripts": {
     "clean": "rm -rf *.log coverage",
