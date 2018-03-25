@@ -30,6 +30,9 @@
     "test": "browserify test.js | tape-run",
     "weight": "uglifyjs index.js --compress --mangle --toplevel | gzip-size"
   },
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "kerning",
     "lettering",
