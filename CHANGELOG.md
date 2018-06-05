@@ -1,5 +1,15 @@
 # Changelog
 
+## 2.2.4
+
+- Add `rimraf`, `mkdirp`
+- Add `husky` and `lint-staged`
+- Bump dependencies
+
+## 2.2.3
+
+- Only publish `index.js`
+
 ## 2.2.2
 
 - Add `standard`
