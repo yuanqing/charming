@@ -1,10 +1,9 @@
-# charming [![npm Version](http://img.shields.io/npm/v/charming.svg?style=flat)](https://www.npmjs.org/package/charming) [![Build Status](https://img.shields.io/travis/yuanqing/charming.svg?branch=master&style=flat)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://img.shields.io/coveralls/yuanqing/charming.svg?style=flat)](https://coveralls.io/r/yuanqing/charming)
+# charming [![npm Version](https://badgen.net/npm/v/charming)](https://www.npmjs.org/package/charming) [![Build Status](https://badgen.net/travis/yuanqing/charming?label=build)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://badgen.net/coveralls/c/github/yuanqing/charming)](https://coveralls.io/r/yuanqing/charming) [![Bundle Size](https://badgen.net/bundlephobia/minzip/charming)](https://bundlephobia.com/result?p=charming)
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
 - Supports changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
 - Supports passing in a regular expression to control how the contents of the element are wrapped
-- 414 bytes gzipped
 
 ## Usage
 
@@ -55,7 +54,7 @@ charming(element, {
 })
 ```
 
-Set `classPrefix` to `false` if you don&rsquo;t need a class on each wrapper element:
+Set `classPrefix` to `false` if you don’t need a class on each wrapper element:
 
 ```js
 charming(element, {
@@ -74,16 +73,8 @@ charming(element, {
 
 ## Installation
 
-Install via [yarn](https://yarnpkg.com):
-
 ```sh
 $ yarn add charming
-```
-
-Or [npm](https://npmjs.com):
-
-```sh
-$ npm install --save charming
 ```
 
 ## License
