@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.5
+
+- Bump dependencies
+
 ## 2.2.4
 
 - Add `rimraf`, `mkdirp`
