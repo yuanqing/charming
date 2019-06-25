@@ -1,6 +1,6 @@
 # charming [![npm Version](https://badgen.net/npm/v/charming)](https://www.npmjs.org/package/charming) [![Build Status](https://badgen.net/travis/yuanqing/charming?label=build)](https://travis-ci.org/yuanqing/charming) [![Coverage Status](https://badgen.net/coveralls/c/github/yuanqing/charming)](https://coveralls.io/r/yuanqing/charming) [![Bundle Size](https://badgen.net/bundlephobia/minzip/charming)](https://bundlephobia.com/result?p=charming)
 
-> [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
+> [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript
 
 - Supports changing the inserted DOM element
 - Supports setting a custom class on each inserted DOM element
@@ -46,7 +46,8 @@ const charming = require('charming')
 
 ### charming(element [, options])
 
-`options` is an optional configuration object.
+- `element` is a DOM element
+- `options` is an optional configuration object
 
 Use `tagName` to change the tag name of the wrapper element:
 
