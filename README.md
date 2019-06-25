@@ -49,7 +49,7 @@ const charming = require('charming')
 - `element` is a DOM element
 - `options` is an optional configuration object
 
-Use `tagName` to change the tag name of the wrapper element:
+Use `options.tagName` to change the tag name of the wrapper element:
 
 ```js
 charming(element, {
@@ -57,7 +57,7 @@ charming(element, {
 })
 ```
 
-Use the `setClassName` callback to change the class name on each wrapper element:
+Use the `options.setClassName` callback to change the class name on each wrapper element:
 
 ```js
 charming(element, {
@@ -67,7 +67,7 @@ charming(element, {
 })
 ```
 
-Use the `split` callback to control how the contents of the element are wrapped:
+Use the `options.split` callback to control how the contents of the element are wrapped:
 
 ```js
 charming(element, {
