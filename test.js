@@ -109,7 +109,9 @@ test('supports passing in a regular expression for splitting the `element`', fun
   t.plan(2)
   const element = createElement('foo bar')
   charming(element, {
-    splitRegex: /(\s+)/,
+    split: function (string) {
+      return string.split(/(\s+)/)
+    },
     setClassName: function (index) {
       return 'word' + index
     }

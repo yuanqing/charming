@@ -5,7 +5,7 @@ function addCharPrefix (index) {
 module.exports = function (element, options) {
   options = options || {}
   element.normalize()
-  var splitRegex = options.splitRegex
+  var split = options.split
 
   var tagName = options.tagName || 'span'
   var setClassName =
@@ -16,22 +16,22 @@ module.exports = function (element, options) {
 
   function inject (element) {
     var parentNode = element.parentNode
-    var string = element.nodeValue
-    var split = splitRegex ? string.split(splitRegex) : string
-    var length = split.length
+    var nodeValue = element.nodeValue
+    var string = split ? split(nodeValue) : nodeValue
+    var length = string.length
     var i = -1
     while (++i < length) {
       var node = document.createElement(tagName)
-      var className = setClassName(count++, split[i])
+      var className = setClassName(count++, string[i])
       if (className) {
         node.className = className
       }
-      node.appendChild(document.createTextNode(split[i]))
+      node.appendChild(document.createTextNode(string[i]))
       node.setAttribute('aria-hidden', 'true')
       parentNode.insertBefore(node, element)
     }
-    if (string.trim() !== '') {
-      parentNode.setAttribute('aria-label', string)
+    if (nodeValue.trim() !== '') {
+      parentNode.setAttribute('aria-label', nodeValue)
     }
     parentNode.removeChild(element)
   }
