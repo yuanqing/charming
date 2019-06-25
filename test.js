@@ -105,7 +105,7 @@ test('can inject spans with a custom class', function (t) {
   )
 })
 
-test('supports passing in a regular expression for splitting the `element`', function (t) {
+test('supports passing in a function for splitting the `element` contents', function (t) {
   t.plan(2)
   const element = createElement('foo bar')
   charming(element, {
