@@ -1,19 +1,17 @@
-function addCharPrefix (index) {
-  return 'char' + index
-}
-
 module.exports = function (element, options) {
   options = options || {}
   element.normalize()
-  var split = options.split
 
   var tagName = options.tagName || 'span'
+  var split = options.split
   var setClassName =
     typeof options.setClassName === 'function'
       ? options.setClassName
-      : addCharPrefix
-  var count = 1
+      : function (index) {
+          return 'char' + index // eslint-disable-line indent
+        } // eslint-disable-line indent
 
+  var count = 1
   function inject (element) {
     var parentNode = element.parentNode
     var nodeValue = element.nodeValue
