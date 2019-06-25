@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.0.0
+
+- Remove `splitRegex` in favour of a `split` callback
+- Allow passing in a `setClassName` callback to set the class name on the inserted DOM element
+
 ## 2.2.5
 
 - Bump dependencies
