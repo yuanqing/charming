@@ -113,12 +113,12 @@ test('supports passing in a regular expression for splitting the `element`', fun
       return string.split(/(\s+)/)
     },
     setClassName: function (index) {
-      return `word${index}`
+      return `word-${index}`
     }
   })
   t.equal(element.getAttribute('aria-label'), 'foo bar')
   t.equal(
     element.innerHTML,
-    '<span class="word1" aria-hidden="true">foo</span><span class="word2" aria-hidden="true"> </span><span class="word3" aria-hidden="true">bar</span>'
+    '<span class="word-1" aria-hidden="true">foo</span><span class="word-2" aria-hidden="true"> </span><span class="word-3" aria-hidden="true">bar</span>'
   )
 })
