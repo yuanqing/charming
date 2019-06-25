@@ -95,7 +95,7 @@ test('can inject spans with a custom class', function (t) {
   const element = createElement('foo')
   charming(element, {
     setClassName: function (index, letter) {
-      return 'index-' + index + ' ' + 'letter-' + letter
+      return `index-${index} letter-${letter}`
     }
   })
   t.equal(element.getAttribute('aria-label'), 'foo')
@@ -113,7 +113,7 @@ test('supports passing in a regular expression for splitting the `element`', fun
       return string.split(/(\s+)/)
     },
     setClassName: function (index) {
-      return 'word' + index
+      return `word${index}`
     }
   })
   t.equal(element.getAttribute('aria-label'), 'foo bar')
