@@ -1,10 +1,17 @@
+function addCharPrefix (index) {
+  return 'char' + index
+}
+
 module.exports = function (element, options) {
   options = options || {}
   element.normalize()
   var splitRegex = options.splitRegex
 
   var tagName = options.tagName || 'span'
-  var classPrefix = options.classPrefix != null ? options.classPrefix : 'char'
+  var setClassName =
+    typeof options.setClassName === 'function'
+      ? options.setClassName
+      : addCharPrefix
   var count = 1
 
   function inject (element) {
@@ -15,9 +22,9 @@ module.exports = function (element, options) {
     var i = -1
     while (++i < length) {
       var node = document.createElement(tagName)
-      if (classPrefix) {
-        node.className = classPrefix + count
-        count++
+      var className = setClassName(count++, split[i])
+      if (className) {
+        node.className = className
       }
       node.appendChild(document.createTextNode(split[i]))
       node.setAttribute('aria-hidden', 'true')

@@ -79,7 +79,9 @@ test('can inject spans without classes', function (t) {
   t.plan(2)
   const element = createElement('foo')
   charming(element, {
-    classPrefix: false
+    setClassName: function () {
+      return null
+    }
   })
   t.equal(element.getAttribute('aria-label'), 'foo')
   t.equal(
@@ -88,25 +90,29 @@ test('can inject spans without classes', function (t) {
   )
 })
 
-test('can inject spans with a custom class prefix', function (t) {
+test('can inject spans with a custom class', function (t) {
   t.plan(2)
   const element = createElement('foo')
   charming(element, {
-    classPrefix: 'c'
+    setClassName: function (index, letter) {
+      return 'index-' + index + ' ' + 'letter-' + letter
+    }
   })
   t.equal(element.getAttribute('aria-label'), 'foo')
   t.equal(
     element.innerHTML,
-    '<span class="c1" aria-hidden="true">f</span><span class="c2" aria-hidden="true">o</span><span class="c3" aria-hidden="true">o</span>'
+    '<span class="index-1 letter-f" aria-hidden="true">f</span><span class="index-2 letter-o" aria-hidden="true">o</span><span class="index-3 letter-o" aria-hidden="true">o</span>'
   )
 })
 
-test('can support passing in a regular expression for splitting the `element`', function (t) {
+test('supports passing in a regular expression for splitting the `element`', function (t) {
   t.plan(2)
   const element = createElement('foo bar')
   charming(element, {
     splitRegex: /(\s+)/,
-    classPrefix: 'word'
+    setClassName: function (index) {
+      return 'word' + index
+    }
   })
   t.equal(element.getAttribute('aria-label'), 'foo bar')
   t.equal(
