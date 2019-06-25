@@ -2,8 +2,9 @@
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript.
 
-- Supports changing the inserted DOM element (defaults to `span`), or changing or removing the class prefix (defaults to `char`)
-- Supports passing in a regular expression to control how the contents of the element are wrapped
+- Supports changing the inserted DOM element
+- Supports setting a custom class on each inserted DOM element
+- Supports passing in callback to control how the contents of the element are wrapped
 
 ## Usage
 
@@ -45,29 +46,36 @@ const charming = require('charming')
 
 ### charming(element [, options])
 
-Pass in an `options` object to change the `tagName` or `classPrefix`:
+`options` is an optional configuration object.
+
+Use `tagName` to change the tag name of the wrapper element:
 
 ```js
 charming(element, {
-  tagName: 'b',
-  classPrefix: 'letter'
+  tagName: 'b'
 })
 ```
 
-Set `classPrefix` to `false` if you don’t need a class on each wrapper element:
+Use the `setClassName` callback to change the class name on each wrapper element:
 
 ```js
 charming(element, {
-  classPrefix: false
+  setClassName: function (index, letter) {
+    return `index-${index} letter-${letter}`
+  }
 })
 ```
 
-Pass in a regular expression on the `splitRegex` key to control how the contents of the element are wrapped:
+Use the `split` callback to control how the contents of the element are wrapped:
 
 ```js
 charming(element, {
-  splitRegex: /(\s+)/,
-  classPrefix: 'word'
+  split: function (string) {
+    return string.split(/(\s+)/)
+  },
+  setClassName: function (index) {
+    return `word-${index}`
+  }
 })
 ```
 
