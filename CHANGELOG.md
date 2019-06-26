@@ -4,6 +4,7 @@
 
 - Remove `splitRegex` in favour of a `split` callback
 - Allow passing in a `setClassName` callback to set the class name on the inserted DOM element
+- Use modern syntax, namely `let`/`const` and default parameters
 
 ## 2.2.5
 
