@@ -17,4 +17,4 @@ script:
 
 after_success:
   - yarn add --dev coveralls
-  - cat coverage/lcov.info | npx coveralls
+  - cat coverage/lcov.info | yarn run coveralls
