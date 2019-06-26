@@ -2,9 +2,8 @@
 
 > [Lettering.js](https://github.com/davatron5000/Lettering.js) in vanilla JavaScript
 
-- Supports changing the inserted DOM element
-- Supports setting a custom class on each inserted DOM element
-- Supports passing in callback to control how the contents of the element are wrapped
+- Supports changing the tag name or class name of the inserted DOM elements
+- Supports controlling how the contents of the element are wrapped
 
 ## Usage
 
@@ -57,7 +56,7 @@ charming(element, {
 })
 ```
 
-Use the `options.setClassName` callback to change the class name on each wrapper element:
+Use `options.setClassName` to change the class name on each wrapper element:
 
 ```js
 charming(element, {
@@ -67,7 +66,7 @@ charming(element, {
 })
 ```
 
-Use the `options.split` callback to control how the contents of the element are wrapped:
+Use `options.split` to control how the contents of the element are wrapped:
 
 ```js
 charming(element, {
