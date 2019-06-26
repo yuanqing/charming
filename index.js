@@ -1,56 +1,48 @@
-module.exports = function (element, options) {
-  options = options || {}
+module.exports = function (
+  element,
+  {
+    tagName = 'span',
+    split,
+    setClassName = function (index) {
+      return 'char' + index
+    }
+  } = {}
+) {
   element.normalize()
-
-  var tagName = options.tagName || 'span'
-  var split = options.split
-  var setClassName =
-    typeof options.setClassName === 'function'
-      ? options.setClassName
-      : function (index) {
-          return 'char' + index // eslint-disable-line indent
-        } // eslint-disable-line indent
-
-  var count = 1
+  let index = 1
   function inject (element) {
-    var parentNode = element.parentNode
-    var nodeValue = element.nodeValue
-    var string = split ? split(nodeValue) : nodeValue
-    var length = string.length
-    var i = -1
-    while (++i < length) {
-      var node = document.createElement(tagName)
-      var className = setClassName(count++, string[i])
+    const parentNode = element.parentNode
+    const nodeValue = element.nodeValue
+    const array = split ? split(nodeValue) : nodeValue.split('')
+    array.forEach(function (string) {
+      const node = document.createElement(tagName)
+      const className = setClassName(index++, string)
       if (className) {
         node.className = className
       }
-      node.appendChild(document.createTextNode(string[i]))
+      node.appendChild(document.createTextNode(string))
       node.setAttribute('aria-hidden', 'true')
       parentNode.insertBefore(node, element)
-    }
+    })
     if (nodeValue.trim() !== '') {
       parentNode.setAttribute('aria-label', nodeValue)
     }
     parentNode.removeChild(element)
   }
-
   ;(function traverse (element) {
-    // `element` is itself a text node.
+    // `element` is itself a text node
     if (element.nodeType === 3) {
       return inject(element)
     }
-
-    // `element` has a single child text node.
-    var childNodes = Array.prototype.slice.call(element.childNodes) // static array of nodes
-    var length = childNodes.length
+    // `element` has a single child text node
+    const childNodes = Array.prototype.slice.call(element.childNodes) // static array of nodes
+    const length = childNodes.length
     if (length === 1 && childNodes[0].nodeType === 3) {
       return inject(childNodes[0])
     }
-
-    // `element` has more than one child node.
-    var i = -1
-    while (++i < length) {
-      traverse(childNodes[i])
-    }
+    // `element` has more than one child node
+    childNodes.forEach(function (childNode) {
+      traverse(childNode)
+    })
   })(element)
 }

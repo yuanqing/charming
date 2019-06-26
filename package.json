@@ -22,7 +22,7 @@
     "tape": "^4.10.2",
     "tape-istanbul": "^1.2.0",
     "tape-run": "^6.0.0",
-    "uglify-js": "^3.6.0"
+    "terser": "^4.0.0"
   },
   "scripts": {
     "clean": "rimraf '*.log' coverage",
@@ -32,7 +32,7 @@
     "fix": "prettier-standard '*.js'",
     "lint": "standard '*.js'",
     "test": "browserify test.js | tape-run",
-    "weight": "uglifyjs index.js --compress --mangle --toplevel | gzip-size"
+    "weight": "terser index.js --compress --mangle --toplevel | gzip-size"
   },
   "lint-staged": {
     "*.js": [
