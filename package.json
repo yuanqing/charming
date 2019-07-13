@@ -34,6 +34,11 @@
     "test": "browserify test.js | tape-run",
     "weight": "terser index.js --compress --mangle --toplevel | gzip-size"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.js": [
       "standard",
