@@ -9,20 +9,20 @@
     "url": "git://github.com/yuanqing/charming.git"
   },
   "devDependencies": {
-    "browserify": "^16.3.0",
+    "browserify": "^16.5.0",
     "browserify-istanbul": "^3.0.1",
     "gzip-size-cli": "^3.0.0",
-    "husky": "^3.0.0",
-    "lint-staged": "^9.2.0",
-    "mkdirp": "^0.5.1",
-    "nyc": "^14.1.1",
-    "prettier-standard": "^9.1.1",
-    "rimraf": "^2.6.3",
-    "standard": "^13.0.2",
-    "tape": "^4.11.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "mkdirp": "^1.0.3",
+    "nyc": "^15.0.0",
+    "prettier-standard": "^16.2.1",
+    "rimraf": "^3.0.2",
+    "standard": "^14.3.1",
+    "tape": "^4.13.2",
     "tape-istanbul": "^1.2.0",
-    "tape-run": "^6.0.0",
-    "terser": "^4.1.2"
+    "tape-run": "^6.0.1",
+    "terser": "^4.6.6"
   },
   "scripts": {
     "clean": "rimraf '*.log' coverage .nyc_output",
@@ -42,7 +42,7 @@
   "lint-staged": {
     "*.js": [
       "standard",
-      "git add"
+      "prettier-standard"
     ]
   },
   "files": [
