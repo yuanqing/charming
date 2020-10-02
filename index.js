@@ -4,8 +4,8 @@ module.exports = function (
   split,
   setClassName
 ) {
-  if ( typeof tagName === 'undefined' ) tagName = 'span';
-  if ( typeof setClassName === 'undefined' ) setClassName = function(index) { return 'char' + index };
+  if (typeof tagName === 'undefined') tagName = 'span'
+  if (typeof setClassName === 'undefined') setClassName = function (index) { return 'char' + index }
   element.normalize()
   let index = 1
   function inject (element) {
